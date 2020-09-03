@@ -6,6 +6,7 @@ Clone the repo and follow the below steps to get it up and running.
 2. After npm install, start the application by giving the command npm start.
 3. Now, go inside FrontEnd folder and do npm install.
 4. After that start the application by using npm start command
+5. Finally open your browser and navigate to 'http://localhost:4200' :)
 
 
 Thank You
