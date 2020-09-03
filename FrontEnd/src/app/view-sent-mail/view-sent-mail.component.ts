@@ -24,9 +24,23 @@ export class ViewSentMailComponent implements OnInit {
           data.mailBody = data.mailBody.replace(/\n/ig, '');
           this.mailBody = data
           this.errData = ""
+          if(document.getElementById('Sent mail')) {
+            console.log("inside IF ****************")
+            document.getElementById('Sent mail').classList.add('is-active')
+          }
+          if(document.getElementById('Inbox')) {
+            document.getElementById('Inbox').classList.remove('is-active')
+          }
         },err =>{
           console.log(err)
           this.errData = "The page you are looking for, does not exists."
+          if(document.getElementById('Sent mail')) {
+            console.log("inside IF ****************")
+            document.getElementById('Sent mail').classList.remove('is-active')
+          }
+          if(document.getElementById('Inbox')) {
+            document.getElementById('Inbox').classList.remove('is-active')
+          }
         })
     })
 

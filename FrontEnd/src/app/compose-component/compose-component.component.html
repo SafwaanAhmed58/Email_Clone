@@ -2,9 +2,9 @@
     <div class="form-group">
         <label for="to">To</label>
         <!-- <input type="email" class="form-control" formControlName="to" id="to" placeholder="name@example.com"/> -->
-        <select formControlName="to" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls.to.errors }">
-            <option value="SafwaanA@xyz.com">SafwaanA@xyz.com</option>
-            <option value="JohnD@xyz.com">JohnD@xyz.com</option>
+        <select formControlName="to" class="form-control" style="cursor: pointer;" [ngClass]="{ 'is-invalid': submitted && form.controls.to.errors }">
+            <option style="cursor: pointer;" value="SafwaanA@xyz.com">SafwaanA@xyz.com</option>
+            <option style="cursor: pointer;" value="JohnD@xyz.com">JohnD@xyz.com</option>
         </select>
         <div *ngIf="form.controls.to.errors?.required && form.controls.to.touched" class="error">
             *Required

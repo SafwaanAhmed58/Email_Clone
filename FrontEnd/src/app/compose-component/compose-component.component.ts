@@ -32,6 +32,13 @@ export class ComposeComponent implements OnInit {
         console.log("User details based on email:", JSON.stringify(data));
         userDetails = data;
         this.userInfo = this.temp.userName ? this.temp : userDetails;
+        if(document.getElementById('Sent mail')) {
+          console.log("inside IF ****************")
+          document.getElementById('Sent mail').classList.remove('is-active')
+        }
+        if(document.getElementById('Inbox')) {
+          document.getElementById('Inbox').classList.remove('is-active')
+        }
       }, (err) => {
         console.log(err);
       })
