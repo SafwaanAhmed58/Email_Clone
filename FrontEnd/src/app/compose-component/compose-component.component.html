@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+    <div class="form-group">
+        <label for="to">To</label>
+        <!-- <input type="email" class="form-control" formControlName="to" id="to" placeholder="name@example.com"/> -->
+        <select formControlName="to" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls.to.errors }">
+            <option value="SafwaanA@xyz.com">SafwaanA@xyz.com</option>
+            <option value="JohnD@xyz.com">JohnD@xyz.com</option>
+        </select>
+        <div *ngIf="form.controls.to.errors?.required && form.controls.to.touched" class="error">
+            *Required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" formControlName="subject" id="subject" placeholder="Subject"/>
+        <div *ngIf="form.controls.subject.errors?.required && form.controls.subject.touched" class="error">
+            *Required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="body"></label>
+        <textarea class="form-control" formControlName="body" id="body" rows="3" style="height: 215px;"></textarea>
+        <div *ngIf="form.controls.body.errors?.required && form.controls.body.touched" class="error">
+            *Required
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="submit()">Send</button>
+</form>

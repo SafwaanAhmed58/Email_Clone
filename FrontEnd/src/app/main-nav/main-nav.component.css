@@ -1,0 +1,28 @@
+mat-sidenav-container {
+  height: 100%;
+}
+mat-sidenav, mat-sidenav-content {
+  padding: 16px;
+}
+mat-sidenav {
+  min-width: 260px;
+  box-shadow: 6px 0 6px rgba(0,0,0,.1);
+  background-color: #FFFFFF;
+}
+mat-sidenav-content {
+  background-color: #FFFFFF;
+  /* top: 3%;
+  left: 3%; */
+}
+.default{
+  background-color: #FFFFFF; 
+}
+.blue{
+  background-color: #888CC7; 
+}
+
+.is-active {
+  background-color: #f2f2f2; 
+  color: #005ce6;
+
+}

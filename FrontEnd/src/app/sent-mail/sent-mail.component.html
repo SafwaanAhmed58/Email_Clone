@@ -1,0 +1,51 @@
+<h2>{{errData}}</h2>
+<div>
+    <form class="form-inline my-2 my-lg-0 float-left">
+        <input class="form-control mr-sm-2" style="width: 400px" type="text" name="search" placeholder="Search" [(ngModel)]="searchText" aria-label="Search">
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+    </form>
+</div>
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" class="no-border text-left">
+                <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialChecked2">
+                    <label class="form-check-label" for="materialChecked2"></label>
+                </div> -->
+            </th>
+            <!-- <th scope="col" class="no-border text-left">From</th>
+            <th scope="col" class="no-border text-left">Subject</th>
+            <th scope="col" class="no-border text-left">Date</th> -->
+        </tr>
+    </thead>
+    <tbody *ngFor="let list of sentMailData | filter:searchText" [routerLink]="['/viewSentMail', list.mailId]" [state]="list" style="cursor: pointer;">
+        <tr>
+            <!-- Material checked -->
+            <th scope="row" class="no-border text-left">
+                <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialChecked2">
+                    <label class="form-check-label" for="materialChecked2"></label>
+                </div> -->
+            </th>
+
+            <th scope="row" class="no-border text-left" style="font-size: 20px;"><h3>To: {{list.toName}}</h3></th>
+            <td class="no-border text-left textOverflow" style="font-size: 20px;"><h3>{{list.subject}}</h3></td>
+            <td class="no-border text-left"style="font-size: 20px;"><h3>{{list.date}}</h3></td>
+        </tr>
+        <!-- <tr>
+        <th scope="row" class="no-border">2</th>
+        <td class="no-border">Jacob</td>
+        <td class="no-border">Thornton</td>
+        <td class="no-border">@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr> -->
+    </tbody>
+</table>
+</div>

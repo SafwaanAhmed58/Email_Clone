@@ -1,0 +1,4 @@
+{
+    "mongoUri":"mongodb+srv://dbUser:BowTa2mW0AjEXSVk@cluster0.cfcpa.mongodb.net?retryWrites=true&w=majority",
+    "dataBaseName":"emailCloneDB"
+}

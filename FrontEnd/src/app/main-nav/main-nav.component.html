@@ -1,0 +1,75 @@
+<mat-sidenav-container #notHandset>
+  <mat-sidenav #drawer fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false" id="topId"
+    style="top: 3%; margin-top: 57px;">
+    <!-- <mat-accordion multi="true"> -->
+    <mat-expansion-panel style="box-shadow:none" [disabled]="'true'" expanded hideToggle>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-size: 20px;font-weight: 500;">
+          <span><button class="btn btn-primary btn-lg" role="button" aria-pressed="true" [routerLink]="['compose']" [state]="parentData">Compose</button></span>
+          <!-- General -->
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <mat-list [id]=(general[0].class) *ngIf="(isHandset$ | async)" (click)="drawer.close()">
+        <a mat-list-item href="#" *ngFor="let gen of general" class="default" [routerLinkActiveOptions]="{exact: true}"
+          [routerLinkActive]="['is-active']" style="text-decoration: none; font-size: 14px;" [state]="parentData" [style.background]="color"
+          [routerLink]="[gen.link, parentData.userId]">{{gen.name}}
+          <!-- <span class="badge badge-primary">Primary</span> -->
+        </a>
+
+        <!-- <a class="nav-link active" *ngFor="let gen of general" id="v-pills-home-tab" data-toggle="pill" 
+          href="#" role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="gen.link">{{gen.name}}</a> -->
+      </mat-list>
+      <mat-list [id]=(general[0].class) *ngIf="!(isHandset$ | async)">
+        <a mat-list-item href="#" *ngFor="let gen of general" [id]=(gen.name)  class="default" [routerLinkActiveOptions]="{exact: true}"
+          [routerLinkActive]="['is-active']" style="text-decoration: none; font-size: 18px; font-weight: 300;" [state]="parentData" [style.background]="color"
+          [routerLink]="[gen.link, parentData.userId]">{{gen.name}}
+          <!-- <span class="badge badge-primary">Primary</span> -->
+        </a>
+        <!-- <a class="nav-link active" *ngFor="let gen of general" id="v-pills-home-tab" data-toggle="pill" 
+          href="#" role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="gen.link">{{gen.name}}</a> -->
+      </mat-list>
+    </mat-expansion-panel>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <img src="./assets/hamburger.png
+      " alt="Smiley face" height="21" width="21">
+    </button>
+    <!-- <h2>{{parentData.userName}}</h2> -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">General</a>
+      <a mat-list-item href="#">Use Cases</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content"> -->
+<!-- <mat-toolbar>
+       <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon"></mat-icon>
+      </button>
+     <span>help-tab</span>
+    </mat-toolbar> -->
+<!-- Add Content Here -->
+<!-- </mat-sidenav-content>
+</mat-sidenav-container> -->

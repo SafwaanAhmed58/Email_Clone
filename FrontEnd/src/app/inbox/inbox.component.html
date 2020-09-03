@@ -1,0 +1,35 @@
+<h2>{{errData}}</h2>
+<div>
+        <form class="form-inline my-2 my-lg-0 float-left">
+            <input class="form-control mr-sm-2" style="width: 400px" type="text" name="search" placeholder="Search" [(ngModel)]="searchText" aria-label="Search">
+        </form>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" class="no-border text-left">
+                    <!-- <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="materialChecked2">
+                        <label class="form-check-label" for="materialChecked2"></label>
+                    </div> -->
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let list of inboxData | filter:searchText" [routerLink]="['/viewMail', list.mailId]" [state]="list" style="cursor: pointer;">
+            <tr>
+                <!-- Material checked -->
+                <th scope="row" class="no-border text-left">
+                    <!-- <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="materialChecked2">
+                        <label class="form-check-label" for="materialChecked2"></label>
+                    </div> -->
+                </th>
+
+                <th scope="row" class="no-border text-left" style="font-size: 20px;"><h3>{{list.from}}</h3></th>
+                <td class="no-border text-left textOverflow" style="font-size: 20px;"><h3>{{list.subject}}</h3></td>
+                <td class="no-border text-left"style="font-size: 20px;"><h3>{{list.date}}</h3></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
