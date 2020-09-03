@@ -26,7 +26,7 @@ export class ViewSentMailComponent implements OnInit {
           this.errData = ""
           if(document.getElementById('Sent mail')) {
             console.log("inside IF ****************")
-            document.getElementById('Sent mail').classList.add('is-active')
+            document.getElementById('Sent mail').classList.remove('is-active')
           }
           if(document.getElementById('Inbox')) {
             document.getElementById('Inbox').classList.remove('is-active')
